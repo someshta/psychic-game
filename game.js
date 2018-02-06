@@ -5,7 +5,7 @@ var losses = 0;
 
 //3. then compare the computers choice with the users choice
 function startGame() {
-	var guessesLeft = 3;
+	var guessesLeft = 5;
 	var guessesSoFar = [];
 	//1. computer needs to randomly choose a letter. 
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -34,19 +34,23 @@ function startGame() {
 			console.log(guessesLeft);
 			
 		}
-
+		//6. if user runs out of guesses, add 1 to losses score, alert "you lost"
 		if (guessesLeft === 0){
 			losses++;
 			document.getElementById("losses").innerHTML = losses;
 			alert("YOU LOST");
 			startGame();
 			
+			
 		}
 		
 	}
 }
+
+
+//when user clicks on replay button, page reloads and game starts over (visually)
 function replay () {
-	location.reload()
+	location.reload();
 }
 startGame();
 //1. figure out where to code, checking if the user has any guesses left

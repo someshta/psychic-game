@@ -4,12 +4,27 @@
 	<title>Psychic Game</title>
 </head>
 <body>
-	<h1>Are you...Psychic?</h1>
-	<div>Wins:<p id="wins"></p></div>
-	<p id="losses">Losses:</p>
-	<p id="guessesLeft">Guesses Left:</p>
-	<p id="guessesSoFar">Guesses So Far:</p>
-	<button onclick="replay()">Replay</button>
+	<div id="header">
+		<h1>Are you...Psychic?</h1>
+		<h2>Can you guess which letter the computer has chosen? Pick a letter on your keyboard and test your clairvoyence</h2>
+	</div>
+	<div id="gameInfo">
+		<div id="score">
+			<p>Wins:<p id="wins"></p></p>
+			<p>Losses:<p id="losses"></p></p>
+		</div>
+		<div id="guesses">
+			<p>Guesses Left:<p id="guessesLeft"></p></p>
+			<p>Guesses So Far:<p id="guessesSoFar"></p></p>
+		</div>
+		<div id="button">
+			<button onclick="replay()">Replay</button>
+		</div>
+	</div>
+	<div>
+		<img src="pizzacrystal.gif" id="pizzacrystal">
+	</div>
+		
 	
 
 	<link rel="stylesheet" type="text/css" href="style.css">
