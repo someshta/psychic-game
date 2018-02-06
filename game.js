@@ -1,5 +1,3 @@
-console.log('inside js');
-
 var wins = 0;
 var losses = 0;
 
@@ -16,24 +14,41 @@ function startGame() {
 	//2. user will guess a letter
 	var userGuess = '';
 	document.onkeyup = function (event){
+		
 		userGuess = event.key;
 		console.log(userGuess);
 		//4. if the users choice matches computers, add one point to wins, computer will choose new letter, guesses left and guesses so far will be reset
 		if (userGuess === computerChoice){
 			wins++;
+			alert("YOU WON!");
+			document.getElementById("wins").innerHTML = wins;
 			startGame();
 		}
 		//5. if user choice does not match, subtract one from guesses left, add the guess to guesses so far array
 		else {
 			guessesLeft--;
 			guessesSoFar.push(userGuess);
+			document.getElementById("guessesLeft").innerHTML = guessesLeft;
+			document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
 			console.log(guessesSoFar);
 			console.log(guessesLeft);
+			
+		}
+
+		if (guessesLeft === 0){
+			losses++;
+			document.getElementById("losses").innerHTML = losses;
+			alert("YOU LOST");
+			startGame();
+			
 		}
 		
 	}
 }
-
+function replay () {
+	location.reload()
+}
 startGame();
 //1. figure out where to code, checking if the user has any guesses left
 //2. use jquery to update html wins/losses etc..
+
