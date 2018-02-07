@@ -1,22 +1,30 @@
 var wins = 0;
 var losses = 0;
 
-
-
-//3. then compare the computers choice with the users choice
+//Game will start the user with 5 guesses
 function startGame() {
 	var guessesLeft = 5;
+	console.log("guessesLeft:" , guessesLeft);
+	//var guessesLeftBrowser = document.getElementById("guessesLeft"); 
+	document.getElementById("guessesLeft").innerHTML = guessesLeft;
+	//console.log("guessesLeftBrowser:" , guessesLeftBrowser ); 
 	var guessesSoFar = [];
+	console.log("guessesSoFar:" , guessesSoFar);
+	//var guessesSoFarBrowser = document.getElementById("guessesSoFar");
+	document.getElementById("guessesSoFar").innerHTML = guessesSoFar;
+	
 	//1. computer needs to randomly choose a letter. 
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)]; 
 	console.log(computerChoice);
+	
 	//2. user will guess a letter
 	var userGuess = '';
 	document.onkeyup = function (event){
 		
 		userGuess = event.key;
 		console.log(userGuess);
+		
 		//4. if the users choice matches computers, add one point to wins, computer will choose new letter, guesses left and guesses so far will be reset
 		if (userGuess === computerChoice){
 			wins++;
@@ -24,6 +32,7 @@ function startGame() {
 			document.getElementById("wins").innerHTML = wins;
 			startGame();
 		}
+		
 		//5. if user choice does not match, subtract one from guesses left, add the guess to guesses so far array
 		else {
 			guessesLeft--;
@@ -48,11 +57,9 @@ function startGame() {
 }
 
 
-//when user clicks on replay button, page reloads and game starts over (visually)
+//when user clicks on replay button, guesses left and letters guessed is refreshed
 function replay () {
-	location.reload();
+	startGame();
 }
 startGame();
-//1. figure out where to code, checking if the user has any guesses left
-//2. use jquery to update html wins/losses etc..
 
